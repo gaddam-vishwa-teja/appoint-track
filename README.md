@@ -47,19 +47,20 @@ To develop a secure, responsive application enabling users to manage their perso
 
 ## 🚀 Tech Stack
 
-- **Frontend**: (React.js / HTML / CSS / etc. — fill in what you're using)
-- **Backend**: (Node.js / Express / etc.)
-- **Database**: (MongoDB / MySQL / etc.)
-- **Authentication**: (JWT / Session-based — specify if used)
+- **Frontend**: ( HTML / CSS / JS)
+- **Backend**: (django)
+- **Database**: ( MySQL)
 
 ---
 
 ## 📁 Folder Structure
 
 ```plaintext
-appoint-track/
-├── client/          # Frontend code
-├── server/          # Backend API
-├── models/          # Database schemas
-├── routes/          # API routes
+gaddam-vishwa-teja-appoint-track/
+├── appoint_Track _Frontend/
+├── appointments/
+├── appointtrack/
+├── output_screens/
+├── staticfiles/
+├── manage.py
 └── README.md
