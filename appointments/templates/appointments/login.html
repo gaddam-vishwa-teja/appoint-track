@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AppointTrack</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">   
+<link rel="stylesheet" href="{% static 'appointments/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'appointments/css/homepage.css' %}">
+
+
+
+    <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+    {% comment %} <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="name" required>
+        <input type="email" name="email" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <textarea name="message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      
+      {% if success %}
+          <p>Appointment booked successfully!</p>
+      {% endif %} {% endcomment %}
+      
+    <div class="container">
+        <header>
+            <h1>AppointTrack</h1>
+            <p>Welcome Back!</p>
+        </header>
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p class="signup-link">Don't have an account? </p>
+                    <a href="{% url 'register' %}">Register here</a>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="{% static 'appointments/js/script.js' %}"></script>
+</body>
+</html>

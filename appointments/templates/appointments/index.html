@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppointTrack - Your Health, Simplified</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'appointments/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'appointments/css/homepage.css' %}">
+
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPKOG90mFMHGTm/jFfG7tuTql3wvjLH0jvPmg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    {% comment %} <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="name" required>
+        <input type="email" name="email" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <textarea name="message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      
+      {% if success %}
+          <p>Appointment booked successfully!</p>
+      {% endif %} {% endcomment %}
+      
+
+
+
+
+    
+    <div class="fixed-signup-button">
+        <a href="{% url 'register' %}" class="button signup-fixed">Sign Up</a>
+    </div>
+
+    <header class="hero">
+        <div class="video-background">
+            <video autoplay loop muted playsinline>
+                <source src="https://www.apollohospitals.com/sites/default/files/2025-01/9-16_Banner_Video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <h1 class="site-title">AppointTrack</h1>
+        <div class="hero-content">
+            <h1>Manage Your Appointments with Ease</h1>
+            <p class="tagline">Your all-in-one platform for seamless healthcare scheduling and management.</p>
+            <div class="hero-buttons">
+                <a href="{% url 'appointments' %}" class="button primary">View Appointments</a>
+                <a href="{% url 'appointment_form' %}" class="button secondary">Book Appointment</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Easy Scheduling</h3>
+                    <p>Book, reschedule, and cancel appointments effortlessly.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bell"></i>
+                    <h3>Appointment Reminders</h3>
+                    <p>Receive timely notifications so you never miss an appointment.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Doctor Directory</h3>
+                    <p>Find and connect with healthcare professionals easily.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-notes-medical"></i>
+                    <h3>Visit History</h3>
+                    <p>Keep track of your past appointments and medical notes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <!-- <div class="container">
+            <h2>Ready to Simplify Your Healthcare?</h2>
+            <p>Join AppointTrack today and take control of your appointments.</p>
+        </div> -->
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AppointTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fixedSignupButton = document.querySelector('.fixed-signup-button');
+            const heroSection = document.querySelector('.hero');
+
+            function checkScroll() {
+                if (heroSection && fixedSignupButton) {
+                    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                    const scrollPosition = window.scrollY; // Only the vertical scroll position
+
+                    if (scrollPosition > heroBottom) {
+                        fixedSignupButton.style.display = 'none'; // Hide the button
+                    } else {
+                        fixedSignupButton.style.display = 'block'; // Show the button
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Initial check
+        });
+        <script src="{% static 'appointments/js/script.js' %}"></script>
+
+    </script>
+</body>
+</html>

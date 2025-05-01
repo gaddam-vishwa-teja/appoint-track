@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - AppointTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">AppointTrack</div>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="appointments.html" class="nav-link">Appointments</a></li>
+            <li class="nav-item"><a href="profile.html" class="nav-link active">Profile</a></li>
+            <li class="nav-item"><button class="nav-link logout-btn">Logout</button></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Your Profile</h1>
+            <p>View and manage your account information</p>
+        </header>
+
+        <div class="profile-info">
+            <h2>View Profile</h2>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> john.doe@example.com</p>
+            <button id="editProfileBtn">Edit Profile</button>
+        </div>
+
+        <div class="edit-profile-form" style="display:none;">
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="john.doe@example.com">
+                </div>
+                <button type="submit">Save Changes</button>
+                <button type="button" id="cancelEditBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const editProfileForm = document.querySelector('.edit-profile-form');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
+        const editProfileFormElement = document.getElementById('editProfileForm');
+
+        if (editProfileBtn && editProfileForm && cancelEditBtn && editProfileFormElement) {
+            editProfileBtn.addEventListener('click', () => {
+                document.querySelector('.profile-info h2').style.display = 'none';
+                editProfileBtn.style.display = 'none';
+                editProfileForm.style.display = 'block';
+            });
+
+            cancelEditBtn.addEventListener('click', () => {
+                editProfileForm.style.display = 'none';
+                document.querySelector('.profile-info h2').style.display = 'block';
+                editProfileBtn.style.display = 'block';
+            });
+
+            editProfileFormElement.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                // In a real application, you would send this data to a server to update the profile.
+                console.log('Profile updated:', { name, email });
+                // After successful update, you might want to refresh the displayed info
+                document.querySelector('.profile-info p:nth-child(1) strong').textContent = 'Name:';
+                document.querySelector('.profile-info p:nth-child(1)').textContent += ` ${name}`;
+                document.querySelector('.profile-info p:nth-child(2) strong').textContent = 'Email:';
+                document.querySelector('.profile-info p:nth-child(2)').textContent += ` ${email}`;
+                editProfileForm.style.display = 'none';
+                document.querySelector('.profile-info h2').style.display = 'block';
+                editProfileBtn.style.display = 'block';
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
